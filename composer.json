@@ -1,7 +1,7 @@
 {
     "name": "vinkas/visa",
-    "description": "A simple, secure user authentication and management system using Laravel",
-    "keywords": ["php authentication", "user management", "laravel", "visa", "vinkas"],
+    "description": "A simple, secure user authentication and management system using Laravel and Socialite",
+    "keywords": ["php authentication", "user management", "socialite", "laravel", "visa", "vinkas"],
     "license": "MIT",
     "type": "project",
     "require": {
