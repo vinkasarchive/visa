@@ -12,5 +12,6 @@ return [
     */
 
     'register' => 'Create account',
+    'activate' => 'Click here to activate your account',
 
 ];
