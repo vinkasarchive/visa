@@ -3,6 +3,7 @@
 namespace App\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facades\Route;
 
 class Visa extends Facade
 {
@@ -23,6 +24,11 @@ class Visa extends Facade
      */
     public static function routes()
     {
-        $router = static::$app->make('router');
+        self::laravelRoutes();
+    }
+
+    protected static function laravelRoutes() {
+      Route::get('/users/activate-account/{token}', 'Auth\EmailConfirmationController@showConfirmationWindow');
+      Route::post('/users/activate-account/{token}', 'Auth\EmailConfirmationController@confirm');
     }
 }
