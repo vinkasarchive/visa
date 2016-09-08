@@ -17,10 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/join', 'Auth\RegisterController@showJoinForm')->name('join');
-Route::post('/join', 'Auth\RegisterController@join');
-
-Route::get('/oauth2/google', 'Auth\SocialiteController@redirectToGoogle');
-Route::get('/oauth2/google/callback', 'Auth\SocialiteController@handleGoogleCallback');
+Visa::routes();
 
 Route::get('/home', 'HomeController@index');
