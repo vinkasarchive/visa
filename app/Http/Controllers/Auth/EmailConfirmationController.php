@@ -20,4 +20,12 @@ class EmailConfirmationController extends Controller
     return redirect('/');
   }
 
+  /**
+  * @param  \Illuminate\Http\Request  $request
+  * @return \Illuminate\Http\Response
+  */
+  public function showConfirmationWindow(Request $request) {
+    //
+  }
+
 }
