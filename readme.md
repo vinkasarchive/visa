@@ -8,7 +8,11 @@ A simple, secure user authentication and management system using [Laravel](https
 
 You may install by issuing the Composer create-project command in your terminal:
 
-`composer create-project --stability=dev vinkas/visa myprojectname`
+<!--`composer create-project --prefer-dist vinkas/visa PROJECT_NAME`-->
+
+> Currently Visa is highly in development. So please try our development branch using below command.
+
+`composer create-project --stability=dev vinkas/visa:dev-laravel PROJECT_NAME`
 
 ## Security Vulnerabilities
 
