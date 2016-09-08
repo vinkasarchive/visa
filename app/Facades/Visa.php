@@ -28,7 +28,7 @@ class Visa extends Facade
     }
 
     protected static function laravelRoutes() {
-      Route::get('/users/activate-account/{token}', 'Auth\EmailConfirmationController@showConfirmationWindow');
-      Route::post('/users/activate-account/{token}', 'Auth\EmailConfirmationController@confirm');
+      Route::get('users/activate-account/{token}', 'Auth\EmailConfirmationController@showConfirmationWindow')->name('confirm-email');
+      Route::post('users/activate-account/{token}', 'Auth\EmailConfirmationController@confirm');
     }
 }
