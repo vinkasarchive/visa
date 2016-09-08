@@ -17,4 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Visa::routes();
+
 Route::get('/home', 'HomeController@index');
