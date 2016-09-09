@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use App\Foundation\Auth\SendsEmailConfirmations;
+
 class RegisterController extends Controller
 {
     /*
@@ -20,7 +22,7 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegistersUsers, SendsEmailConfirmations;
 
     /**
      * Where to redirect users after login / registration.
@@ -63,11 +65,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        $this->sendEmailConfirmation($user);
+        return $user;
     }
 }

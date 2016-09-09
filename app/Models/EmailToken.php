@@ -8,7 +8,16 @@ use Illuminate\Notifications\Notifiable;
 class EmailToken extends Model
 {
   use Notifiable;
-  
+
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array
+   */
+  protected $fillable = [
+      'user_id', 'email', 'token',
+  ];
+
   /**
    * The table associated with the model.
    *
