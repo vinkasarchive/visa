@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
+use App\Foundation\Auth\EmailToken as Confirmable;
+
 class EmailToken extends Model
 {
-  use Notifiable;
+  use Notifiable, Confirmable;
 
   /**
    * The attributes that are mass assignable.

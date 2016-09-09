@@ -16,11 +16,11 @@ class EmailConfirmationController extends Controller
   */
   public function confirm(Request $request) {
     $token = $request->input('token');
-    $token = EmailToken::where('token', $token)->first();
-    if($token == null) {
+    $emailToken = EmailToken::where('token', $token)->first();
+    if($emailToken == null) {
       abort(401, "Invalid token");
     }
-    $token->confirm();
+    $emailToken->confirm();
     return redirect('/');
   }
 
@@ -29,6 +29,16 @@ class EmailConfirmationController extends Controller
   * @return \Illuminate\Http\Response
   */
   public function showConfirmationWindow(Request $request, $token) {
+    $emailToken = EmailToken::where('token', $token)->first();
+    if($emailToken == null) {
+      abort(401, "Invalid token");
+    }
+    if($emailToken->confirmed) {
+      return view('message')->with('text', 'This email address is already confirmed. You can login now using your credentials.');
+    }
+    if($emailToken->expired) {
+      return view('message')->with('text', 'Sorry! Your email confirmation link is now expired.');
+    }
     return view('auth.emails.confirmation')->with('token', $token);
   }
 
